@@ -1,0 +1,16 @@
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /public {
+      match /{allPaths=**} {
+        allow read, write;
+      }
+		}
+    
+    match /private {
+		  match /{userId}/{allPaths=**} {
+        allow write: if request.auth.uid == userId; 
+        allow read: if resource.metadata[request.auth.uid] != null; 
+      }
+    }
+  }
+}

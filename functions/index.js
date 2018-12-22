@@ -5,8 +5,8 @@ const admin = require('firebase-admin')
 const serviceAccount = require('./secret.json')
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://fir-template-11d18.firebaseio.com/',
-  storageBucket: 'fir-template-11d18.appspot.com',
+  databaseURL: `https://${serviceAccount.project_id}.firebaseio.com/`,
+  storageBucket: `${serviceAccount.project_id}.appspot.com`,
 })
 const database = admin.database()
 const storage = admin.storage()

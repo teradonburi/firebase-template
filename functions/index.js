@@ -2,7 +2,7 @@
 
 const functions = require('firebase-functions')
 const admin = require('firebase-admin')
-const serviceAccount = require('./admin.json')
+const serviceAccount = require('./secret.json')
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: 'https://fir-template-11d18.firebaseio.com/',

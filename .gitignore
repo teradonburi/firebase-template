@@ -2,4 +2,8 @@ node_modules
 .cache
 yarn-error.log
 .firebase
+firebase-debug.log
 public/**
+functions/secret.json
+.firebaserc
+src/js/lib/config.js

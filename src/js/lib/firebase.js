@@ -1,14 +1,7 @@
 import firebase from 'firebase'
 
 // プロジェクト別に違う
-const config = {
-  apiKey: 'AIzaSyBD8dyACq01J3Mus9jM9aNtoNK8ShcmMFI',
-  authDomain: 'fir-template-11d18.firebaseapp.com',
-  databaseURL: 'https://fir-template-11d18.firebaseio.com',
-  projectId: 'fir-template-11d18',
-  storageBucket: 'fir-template-11d18.appspot.com',
-  messagingSenderId: '745807609589',
-}
+import { config } from './config'
 firebase.initializeApp(config)
 
 const auth = firebase.auth()

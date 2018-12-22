@@ -4,8 +4,7 @@
   "main": "index.js",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "parcel src/index.html -d public",
-    "deploy": "firebase deploy"
+    "start": "parcel src/index.html -d public"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",

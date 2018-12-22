@@ -31,6 +31,7 @@ const thunkWithClient = thunk.withExtraArgument(client)
 
 
 const LOGIN = 'user/LOGIN'
+const LOGOUT = 'user/LOGOUT'
 const INFO = 'user/INFO'
 const CHAT = 'user/CHAT'
 
@@ -41,6 +42,12 @@ function userReducer(state = {uid: null, token: null, info: '', chats: []}, acti
         ...state,
         uid: action.uid,
         token: action.token,
+      }
+    case LOGOUT:
+      return {
+        ...state,
+        uid: null,
+        token: null,
       }
     case INFO:
       return {
@@ -76,7 +83,7 @@ authChange(({uid, token}) => {
   if (token) {
     store.dispatch({type: LOGIN, uid, token})
   } else {
-    store.dispatch({type: LOGIN, uid: null, token: null})
+    store.dispatch({type: LOGOUT})
   }
 })
 

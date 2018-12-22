@@ -40,8 +40,8 @@ function userReducer(state = {uid: null, token: null, info: '', chats: []}, acti
     case LOGIN:
       return {
         ...state,
-        uid: action.data.uid,
-        token: action.data.token,
+        uid: action.uid,
+        token: action.token,
       }
     case INFO:
       return {
@@ -75,20 +75,9 @@ import { upload, download, signIn, signOut, authChange, apiEndpoint, pushData, r
 
 authChange(({uid, token}) => {
   if (token) {
-    const url = apiEndpoint + '/api/user/login'
-    fetch(url, {
-      method: 'GET',
-      headers: {
-        'Authorization': 'Bearer ' + token,
-      },
-    })
-      .then(() => store.dispatch({type: LOGIN, data: {uid, token}}))
-      .catch(error => {
-        console.error(error)
-        store.dispatch({type: LOGIN, data: {uid: null, token: null}})
-      })
+    store.dispatch({type: LOGIN, uid, token})
   } else {
-    store.dispatch({type: LOGIN, data: {uid: null, token: null}})
+    store.dispatch({type: LOGIN, uid: null, token: null})
   }
 })
 

@@ -2,7 +2,6 @@
 import 'firebase'
 import React  from 'react'
 import ReactDOM from 'react-dom'
-import { AppContainer } from 'react-hot-loader'
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
 import createHistory from 'history/createBrowserHistory'
@@ -199,12 +198,10 @@ const App = ({history}) => (
 )
 
 ReactDOM.render(
-  <AppContainer>
-    <MuiThemeProvider theme={theme}>
-      <Provider store={store}>
-        <App history={history} />
-      </Provider>
-    </MuiThemeProvider>
-  </AppContainer>,
+  <MuiThemeProvider theme={theme}>
+    <Provider store={store}>
+      <App history={history} />
+    </Provider>
+  </MuiThemeProvider>,
   document.getElementById('root'),
 )

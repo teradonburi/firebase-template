@@ -7,3 +7,4 @@ public/**
 functions/secret.json
 .firebaserc
 src/js/lib/config.js
+.DS_store
